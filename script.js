@@ -8,13 +8,15 @@ function element(tag, classname, id, text) {
   const container = element("div","container my-5","","")
   const row=element("div","row","","")
 
-const main=document.getElementById("main");
+//const main=document.getElementById("main");
+const main=document.querySelector(".main");
 
 //* api fetch:
 
 const response=fetch("https://thronesapi.com/api/v2/Characters");
 response.then((data)=>data.json())
 .then((ele)=>{
+    //* displaying the api data using dom 
     for(var i=0;i<ele.length;i++)
     {  
         const totalcount=ele.length;
@@ -34,4 +36,4 @@ response.then((data)=>data.json())
         main.append(row);
     }
 })
-.catch((error)=>error.alert("There is no data in api"))
+.catch((error)=>alert("There is no data in api"))
